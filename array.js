@@ -33,6 +33,15 @@ class Array {
     }
     return memory.get(this.ptr + index);
   }
+
+  pop(){
+      if(this.length == 0){
+          throw new Error('Index error')
+      }
+      const value = memory.get(this.ptr + this.length -1);
+      this.length --;
+      return value;
+  }
 }
 
 Array.SIZE_RATIO = 3;
