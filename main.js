@@ -17,6 +17,14 @@ function main() {
   // length: 6, capacity: 12, ptr: 3
   // Only resizes if it needs to when it got to 4 it resizes.
 
+  arr.pop();
+  arr.pop();
+  arr.pop();
+  // length: 3, _capacity: 12, ptr: 3 
+  //after the above pushing actions, it simply removes the last 3 items, but doesn't resize the array. So the capacity and pointer remain the same.
+
+  
+
   console.log(arr);
 }
 
