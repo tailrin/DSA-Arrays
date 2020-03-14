@@ -13,7 +13,6 @@ function main() {
   //length: 1, capacity: 3
 
   console.log(arr);
-  console.log(arr.ptr);
 }
 
 main();
