@@ -46,9 +46,30 @@ function main() {
 // console.log(urlify("tauhida parveen"));
 // console.log(urlify("www.thinkful.com /tauh ida parv een"));
 
-
-const maxSum = arr => {
+function maxSumWrapper(array) {
+  let currentMax = 0;
   
+  function sum(array) {
+    return array.reduce((total, b) => {return total + b}, 0);
+  }
+  
+  function maxSum(array) {
+    const arrayClone = array.slice();
+    if (arrayClone.length === 1) {
+      return currentMax;
+    }
+  
+    //need a helper function that finds the max sum of the array in its current size, then moves shifts off the first element, and does it again.
+    if (sum(arrayClone) > currentMax) {
+      currentMax = sum(arrayClone);
+    }
+    arrayClone.pop();
+    maxSum(arrayClone);
+    return currentMax;
+  }
+  maxSum(array);
+
+  return currentMax;
 }
 
-console.log(maxSum([4, 6, -3, 5, -2, 1]));
+console.log(maxSumWrapper([4, 6, -3, 5, -2, 1]));
