@@ -17,14 +17,21 @@ class Array {
   }
 
   _resize(size) {
-      const oldPtr = this.ptr;
-      this.ptr = memory.allocate(size);
-      if(this.ptr === null){
-          throw new Error('Out of memory');
-      }
-      memory.copy(this.ptr, oldPtr, this.length)
-      memory.free(oldPtr)
-      this._capacity = size;
+    const oldPtr = this.ptr;
+    this.ptr = memory.allocate(size);
+    if (this.ptr === null) {
+      throw new Error("Out of memory");
+    }
+    memory.copy(this.ptr, oldPtr, this.length);
+    memory.free(oldPtr);
+    this._capacity = size;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) {
+      throw new Error("Index error");
+    }
+    return memory.get(this.ptr + index);
   }
 }
 
