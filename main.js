@@ -22,10 +22,14 @@ function main() {
   arr.pop();
   // length: 3, _capacity: 12, ptr: 3 
   //after the above pushing actions, it simply removes the last 3 items, but doesn't resize the array. So the capacity and pointer remain the same.
+  console.log(arr.get(0));
+  arr.length = 0;
+  arr.push("tauhida");
 
+  console.log(arr.get(0));
+  // returns NaN because memory is set up to handle numbers using Float64Array and so cannot handle strings
+  // resize function allocates additional memory and then copies contents to new memory block and deletes the old memory block
   
-
-  console.log(arr);
 }
 
 main();
