@@ -37,7 +37,7 @@ function main() {
   //console.log(arr);
 }
 
-main();
+// main();
 
 // function urlify(URL) {
 //   return URL.split(" ").join("%20");
@@ -45,3 +45,10 @@ main();
 
 // console.log(urlify("tauhida parveen"));
 // console.log(urlify("www.thinkful.com /tauh ida parv een"));
+
+
+const maxSum = arr => {
+  
+}
+
+console.log(maxSum([4, 6, -3, 5, -2, 1]));
