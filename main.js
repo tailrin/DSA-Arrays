@@ -72,4 +72,25 @@ function maxSumWrapper(array) {
   return currentMax;
 }
 
-console.log(maxSumWrapper([4, 6, -3, 5, -2, 1]));
+function mergeArr(arr1, arr2){
+  const cloneArr1 = arr1.slice();
+  const cloneArr2 = arr2.slice();
+  while(cloneArr2.length > 0){
+    const arrItem = cloneArr2.shift() 
+    cloneArr1.forEach((item, i) => {
+      if(arrItem < item && i === 0){
+        cloneArr1.unshift(arrItem);
+      }
+      if(arrItem > item && i == cloneArr1.length - 1){
+        cloneArr1.push(arrItem);
+      }
+      if(arrItem > item && arrItem < cloneArr1[i + 1]){
+        cloneArr1.splice(i + 1, 0, arrItem)
+      }
+    })
+  }
+  return cloneArr1
+}
+
+
+console.log(mergeArr([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
