@@ -1,5 +1,6 @@
 const Array = require("./array");
 
+
 function main() {
   Array.SIZE_RATIO = 3;
 

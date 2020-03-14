@@ -1,4 +1,5 @@
-const memory = require("./memory");
+const Memory = require("./memory");
+const memory = new Memory();
 
 class Array {
   constructor() {
