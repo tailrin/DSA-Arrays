@@ -31,7 +31,7 @@ function main() {
   // resize function allocates additional memory and then copies contents to new memory block and deletes the old memory block
 
   arr.filter(20);
-  for (let i = 0; i < arr.length; i++ ) {
+  for (let i = 0; i < arr.length; i++) {
     console.log(arr.get(i));
   }
   //console.log(arr);
@@ -48,17 +48,19 @@ function main() {
 
 function maxSumWrapper(array) {
   let currentMax = 0;
-  
+
   function sum(array) {
-    return array.reduce((total, b) => {return total + b}, 0);
+    return array.reduce((total, b) => {
+      return total + b;
+    }, 0);
   }
-  
+
   function maxSum(array) {
     const arrayClone = array.slice();
     if (arrayClone.length === 1) {
       return currentMax;
     }
-  
+
     //need a helper function that finds the max sum of the array in its current size, then moves shifts off the first element, and does it again.
     if (sum(arrayClone) > currentMax) {
       currentMax = sum(arrayClone);
@@ -72,25 +74,38 @@ function maxSumWrapper(array) {
   return currentMax;
 }
 
-function mergeArr(arr1, arr2){
+function mergeArr(arr1, arr2) {
   const cloneArr1 = arr1.slice();
   const cloneArr2 = arr2.slice();
-  while(cloneArr2.length > 0){
-    const arrItem = cloneArr2.shift() 
+  while (cloneArr2.length > 0) {
+    const arrItem = cloneArr2.shift();
     cloneArr1.forEach((item, i) => {
-      if(arrItem < item && i === 0){
+      if (arrItem < item && i === 0) {
         cloneArr1.unshift(arrItem);
       }
-      if(arrItem > item && i == cloneArr1.length - 1){
+      if (arrItem > item && i == cloneArr1.length - 1) {
         cloneArr1.push(arrItem);
       }
-      if(arrItem > item && arrItem < cloneArr1[i + 1]){
-        cloneArr1.splice(i + 1, 0, arrItem)
+      if (arrItem > item && arrItem < cloneArr1[i + 1]) {
+        cloneArr1.splice(i + 1, 0, arrItem);
       }
-    })
+    });
   }
-  return cloneArr1
+  return cloneArr1;
 }
 
+//console.log(mergeArr([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
 
-console.log(mergeArr([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
+function removeChar(string, chars) {
+  let newString = "";
+
+  // check if chars includes string current index char
+  for (let i = 0; i < string.length; i++) {
+    if (!chars.includes(string[i])) {
+      newString = newString + string[i];
+    }
+  }
+  return newString;
+}
+
+console.log(removeChar("Battle of the Vowels: Hawaii vs. Grozny", "aeiou"));
