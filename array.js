@@ -68,6 +68,15 @@ class Array {
     );
     this.length--;
   }
+
+  filter(value) {
+    for(let i = 0; i < this.length; i++) {
+      if(this.get(i) < value) {
+        this.remove(i);
+        i--;
+      }
+    }
+  }
 }
 
 Array.SIZE_RATIO = 3;
