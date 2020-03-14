@@ -108,4 +108,17 @@ function removeChar(string, chars) {
   return newString;
 }
 
-console.log(removeChar("Battle of the Vowels: Hawaii vs. Grozny", "aeiou"));
+//console.log(removeChar("Battle of the Vowels: Hawaii vs. Grozny", "aeiou"));
+
+function products(array) {
+  let answer = [];
+  for(let i = 0; i < array.length; i++) {
+    let arrayClone = array.slice();
+    arrayClone.splice(i, 1);
+    let product = arrayClone.reduce((total, item) => {return total * item}, 1);
+    answer.push(product);
+  }
+  return answer;
+}
+
+console.log(products([1, 3, 9, 4]));
